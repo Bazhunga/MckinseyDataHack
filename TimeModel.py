@@ -281,12 +281,29 @@ if __name__ == "__main__":
     er_file.close()
 
     resp = BestLocations(location, day, seconds_since_midnight)
-    print(resp)
+    print("\n\n")
+    print(resp[1][0])
+    print(resp[2][0])
+    print(str(round(resp[3][0]*60)) + " minute waittime")
+    print(str(round(resp[4][0]/1532)) + " minute travel time by car")
+    print(str(round(resp[5][0]/1200))) + " minute travel time by transit"
+    print("Classification: " + resp[6][0])
+    print("\n\n")
+    print(resp[1][1])
+    print(resp[2][1])
+    print(str(round(resp[3][1]*60)) + " minute waittime")
+    print(str(round(resp[4][1]/1532)) + " minute travel time by car")
+    print(str(round(resp[5][1]/1200))) + " minute travel time by transit"
+    print("Classification: " + resp[6][1])
+    print("\n\n")
+    print(resp[1][2])
+    print(resp[2][2])
+    print(str(round(resp[3][2]*60)) + " minute waittime")
+    print(str(round(resp[4][2]/1532)) + " minute travel time by car")
+    print(str(round(resp[5][2]/1200))) + " minute travel time by transit"
+    print("Classification: " + resp[6][2])
+    print("\n\n")
 
-    print(resp[0][0] + "             " + resp[0][1] + "             " + resp[0][2] + "             " + resp[0][3] + "             " + resp[0][4] + "             " + resp[0][5] + "             ")
-    print(resp[1][0] + "     " + str(resp[2][0]) + "             " + str(resp[3][0]*60) + "min          " + str(resp[4][0]) + "             " + str(resp[5][0]) + resp[6][0])
-    print()
-    print()
 
     # for element in BestLocations('110 Charles St West, Toronto, Ontario','Thursday',35000):
     #     print(element)

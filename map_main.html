@@ -67,7 +67,7 @@
 
       .suggestion_panel{
          margin-left: 20px;
-         margin-top: 10px;
+         margin-top: 20px;
          width: 550px;
          height: 150px;
          z-index: 1000;
@@ -228,7 +228,28 @@
              position: markerlatlng,
              title:"Your current location!"
          });
+
+         var mountain = new google.maps.LatLng(43.7604349,-79.7296874);
+         var marker_3 = new google.maps.Marker({
+             position: mountain,
+             title:"Loc 3"
+         });
+
+         var woodbine = new google.maps.LatLng(43.7353694,-79.6078057);
+         var marker_2 = new google.maps.Marker({
+             position: woodbine,
+             title:"Loc 2"
+         });
+
+         var sherway = new google.maps.LatLng(43.6090423,-79.5640066);
+         var marker_1 = new google.maps.Marker({
+             position: sherway,
+             title:"Loc 1"
+         });
  
+         marker_1.setMap(map);
+         marker_2.setMap(map);
+         marker_3.setMap(map);
          marker.setMap(map);
          // ==============================
  
@@ -240,8 +261,26 @@
             content: '<div class="info-window-content"><h4>110 Charles Street</h4></div>',
             maxWidth: 275
          };
+
+         myInfoWindowOptions1 = {
+            content: '<div class="info-window-content"><h4>Queensway Health Centre</h4></div>',
+            maxWidth: 275
+         };
+
+         myInfoWindowOptions2 = {
+            content: '<div class="info-window-content"><h4>Etobicoke Urgent Care Clinic</h4></div>',
+            maxWidth: 275
+         };
+
+         myInfoWindowOptions3 = {
+            content: '<div class="info-window-content"><h4>Brampton Urgent Care Clinic</h4></div>',
+            maxWidth: 300
+         };
  
          infoWindow = new google.maps.InfoWindow(myInfoWindowOptions);
+         infoWindow1 = new google.maps.InfoWindow(myInfoWindowOptions1);
+         infoWindow2 = new google.maps.InfoWindow(myInfoWindowOptions2);
+         infoWindow3 = new google.maps.InfoWindow(myInfoWindowOptions3);
  
          google.maps.event.addListener(marker, 'click', function() {
             infoWindow.open(map,marker);
@@ -252,6 +291,10 @@
          });
  
          infoWindow.open(map,marker);
+         infoWindow1.open(map, marker_1)
+         infoWindow2.open(map, marker_2)
+         infoWindow3.open(map, marker_3)
+
       }//end initialize
 
       /*
@@ -284,17 +327,6 @@
                $('#map_canvas').css("-webkit-filter", "blur(0px)")
                // Slide in a thing
                $("#sidePanel").animate({width:'toggle'},350);
-
-               $.ajax({
-                 type: "POST",
-                 url: "http://localhost:8000/TimeModel.py",
-                 async:false, 
-                 data: { param: " "},
-                 dataType: "text"
-               }).done(function( o ) {
-                  alert("OK")
-                  console.log(o)
-               });
             });
          });
       });
@@ -345,13 +377,13 @@
             <div class="col-sm-8 sug_details">
                <p class="sug sug_title">Brampton Urgent Care Clinic</p>
                <p class="sug sug_subtitle">51 Mountainash Road, Brampton, ON L6R 1W4</p>
-               <p class="sug sug_classification">UCC</p>
+               <p class="sug sug_classification">Urgent Care Centre</p>
                <p class="sug sug_classification"></p>
                <p class="sug">9am - 9pm</p>
             </div>
             <div class="col-sm-4 sug_waittime">
                <p class="sug sug_waittime_number">4</p>
-               <p class="sug sug_waittime_unites">min</p>
+               <p class="sug sug_waittime_unites">min wait time</p>
             </div>
          </div>
       </div>
@@ -360,13 +392,13 @@
             <div class="col-sm-8 sug_details">
                <p class="sug sug_title">Etobicoke Urgent Care Clinic</p>
                <p class="sug sug_subtitle">25 Woodbine Downs Blvd., Etobicoke, ON M9W 6N5</p>
-               <p class="sug sug_classification">UCC</p>
+               <p class="sug sug_classification">Urgent Care Centre</p>
                <p class="sug">9am - 11pm</p>
 
             </div>
             <div class="col-sm-4 sug_waittime">
                <p class="sug sug_waittime_number">5</p>
-               <p class="sug sug_waittime_unites">min</p>
+               <p class="sug sug_waittime_unites">min wait time</p>
             </div>
          </div>
       </div>
@@ -375,13 +407,13 @@
             <div class="col-sm-8 sug_details">
                <p class="sug sug_title">Queensway Health Centre</p>
                <p class="sug sug_subtitle">150 Sherway Drive, Etobicoke, Ontario</p>
-               <p class="sug sug_classification">UCC</p>
+               <p class="sug sug_classification">Urgent Care Centre</p>
                <p class="sug">10am - 10pm</p>
 
             </div>
             <div class="col-sm-4 sug_waittime">
                <p class="sug sug_waittime_number">11</p>
-               <p class="sug sug_waittime_unites">min</p>
+               <p class="sug sug_waittime_unites">min wait time</p>
             </div>
          </div>
       </div>
