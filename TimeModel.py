@@ -3,6 +3,8 @@ import urllib2
 import json
 import math
 import numpy as np
+from datetime import datetime
+from sys import argv
 
 class UrgentCareCenter:
     def __init__(self, entry):
@@ -238,9 +240,29 @@ def BestLocations(start,date,time_seconds):
 
     return [['Venues','Addresses','Wait Times','Total Time (Car)','Total Time (Transit)','Venue Type'],best_venues,best_addresses,best_wait_times,best_total_car_time,best_total_transit_time,best_venue_type]
 
+def writeCentreName(mapfile):
+    "<p class=\"sug sug_title\">Nearest_Centre_1</p>"
+
 
 if __name__ == "__main__":
     # Load locations - Reading Files
+    location = ""
+    day = ""
+    if len(argv) == 3:
+        location = argv[1]
+        day = argv[2]
+        
+    if(location == ""):
+        location = "110 Charles Street"
+    if(day == ""):
+        day = "Monday"
+
+    now = datetime.now()
+    seconds_since_midnight = (now - now.replace(hour=0, minute=0, second=0, microsecond=0)).total_seconds()
+    # print location
+    # print day
+    # print seconds_since_midnight
+
     ucc_file = open('UrgentCareCenters.csv')
     ucc_file.readline()
     ucc_file.readline()
@@ -258,8 +280,13 @@ if __name__ == "__main__":
         EmergencyRooms.append(EmergencyRoom(line))
     er_file.close()
 
-    list_of_lists = BestLocations("110 Simcoe Street", "Monday", 200)
-    print(BestLocations("110 Simcoe Street", "Monday", 200))
+    resp = BestLocations(location, day, seconds_since_midnight)
+    print(resp)
+
+    print(resp[0][0] + "             " + resp[0][1] + "             " + resp[0][2] + "             " + resp[0][3] + "             " + resp[0][4] + "             " + resp[0][5] + "             ")
+    print(resp[1][0] + "     " + str(resp[2][0]) + "             " + str(resp[3][0]*60) + "min          " + str(resp[4][0]) + "             " + str(resp[5][0]) + resp[6][0])
+    print()
+    print()
 
     # for element in BestLocations('110 Charles St West, Toronto, Ontario','Thursday',35000):
     #     print(element)

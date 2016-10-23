@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Ouch!</title>
@@ -223,54 +223,54 @@
          */
 
          // REACTIVATE HERE===============
-         // var markerlatlng = new google.maps.LatLng(43.6532, -79.3832);
+         var markerlatlng = new google.maps.LatLng(43.6532, -79.3832);
  
-         // var marker = new google.maps.Marker({
-         //     position: markerlatlng,
-         //     title:"Your current location!"
-         // });
+         var marker = new google.maps.Marker({
+              position: markerlatlng,
+              title:"Your current location!"
+         });
  
-         // marker.setMap(map);
+         marker.setMap(map);
          // ==============================
  
          /*
          INFO Bubble
          */
  
-         // myInfoWindowOptions = {
-         //    content: '<div class="info-window-content"><h4>You are here</h4></div>',
-         //    maxWidth: 275
-         // };
+         myInfoWindowOptions = {
+            content: '<div class="info-window-content"><h4>You are here</h4></div>',
+            maxWidth: 275
+         };
  
-         // infoWindow = new google.maps.InfoWindow(myInfoWindowOptions);
+         infoWindow = new google.maps.InfoWindow(myInfoWindowOptions);
  
-         // google.maps.event.addListener(marker, 'click', function() {
-         //    infoWindow.open(map,marker);
-         // });
+         google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.open(map,marker);
+         });
  
-         // google.maps.event.addListener(marker, 'dragstart', function(){
-         //    infoWindow.close();
-         // });
+         google.maps.event.addListener(marker, 'dragstart', function(){
+            infoWindow.close();
+         });
  
-         // infoWindow.open(map,marker);
+         infoWindow.open(map,marker);
 
-         // if (navigator.geolocation) {
-         //    navigator.geolocation.getCurrentPosition(function(position) {
-         //       var pos = {
-         //         lat: position.coords.latitude,
-         //         lng: position.coords.longitude
-         //       };
+         if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+               var pos = {
+                 lat: position.coords.latitude,
+                 lng: position.coords.longitude
+               };
 
-         //       infoWindow.setPosition(pos);
-         //       infoWindow.setContent('Location found.');
-         //       map.setCenter(pos);
-         //    }, function() {
-         //       handleLocationError(true, infoWindow, map.getCenter());
-         //    });
-         // } else {
-         //    // Browser doesn't support Geolocation
-         //    handleLocationError(false, infoWindow, map.getCenter());
-         // } 
+               infoWindow.setPosition(pos);
+               infoWindow.setContent('Location found.');
+               map.setCenter(pos);
+            }, function() {
+               handleLocationError(true, infoWindow, map.getCenter());
+            });
+         } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+         } 
       }//end initialize
 
       /*
@@ -362,13 +362,13 @@
       <div class="suggestion_panel">
          <div class="row sug_row">
             <div class="col-sm-8 sug_details">
-               <p class="sug sug_title">Nearest Centre 1</p>
-               <p class="sug sug_subtitle">Location</p>
+               <p class="sug sug_title">Nearest_Centre_1</p>
+               <p class="sug sug_subtitle">Location_1</p>
                <p class="sug sug_classification">UCC</p>
-               <p class="sug hours of operation">24 hours</p>
+               <p class="sug hours of operation">hho_1</p>
             </div>
             <div class="col-sm-4 sug_waittime">
-               <p class="sug sug_waittime_number">22</p>
+               <p class="sug sug_waittime_number">wait1</p>
                <p class="sug sug_waittime_unites">min</p>
             </div>
          </div>
@@ -377,13 +377,13 @@
       <div class="suggestion_panel">
          <div class="row sug_row">
             <div class="col-sm-8 sug_details">
-               <p class="sug sug_title">Nearest Centre 1</p>
+               <p class="sug sug_title">Nearest_Centre_2</p>
                <p class="sug sug_subtitle">Location</p>
                <p class="sug sug_classification">UCC</p>
-               <p class="sug hours of operation">24 hours</p>
+               <p class="sug hours of operation">hho_2</p>
             </div>
             <div class="col-sm-4 sug_waittime">
-               <p class="sug sug_waittime_number">35</p>
+               <p class="sug sug_waittime_number">wait2</p>
                <p class="sug sug_waittime_unites">min</p>
             </div>
          </div>
@@ -392,13 +392,13 @@
       <div class="suggestion_panel">
          <div class="row sug_row">
             <div class="col-sm-8 sug_details">
-               <p class="sug sug_title">Nearest Centre 1</p>
+               <p class="sug sug_title">Nearest_Centre_3</p>
                <p class="sug sug_subtitle">Location</p>
                <p class="sug sug_classification">UCC</p>
-               <p class="sug hours of operation">24 hours</p>
+               <p class="sug hours of operation">hho_3</p>
             </div>
             <div class="col-sm-4 sug_waittime">
-               <p class="sug sug_waittime_number">45</p>
+               <p class="sug sug_waittime_number">wait3</p>
                <p class="sug sug_waittime_unites">min</p>
             </div>
          </div>
@@ -411,4 +411,4 @@
    </div><!-- End Google Maps Background -->
  
 </body>
-</html>
+</html> -->
